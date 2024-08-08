@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create landing page </title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing:border-box;
+        }
+        header{
+            width: 100%;
+            height: 100vh;
+            background-image:url('imgk.jpg');
+            background-size:cover;
+            font-family: sans-serif;
+        }
+        nav{
+            width: 100%;
+            height: 100px;
+            color:white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .logo{
+           font-size: 2em; 
+           letter-spacing: 2px;
+        }
+        .menu a{
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 20px;
+            position: relative;
+        }
+        .menu a:after{
+          content: '';
+          position: absolute;
+          top:0 ;
+          left: 0;
+          width: 0%;
+          height: 100%;
+          border-bottom: 3.5px solid indianred;
+          transition: 0.3s linear;
+
+
+        }
+        .menu a:hover:after{
+            width:90% ;
+        }
+        .register a:hover{
+           background:transparent;
+           border: 1px-solid indianred ;
+        }
+        .register a{
+            text-decoration: none;
+            color:black;
+            padding: 10px 20px;
+            font-size: 20px;
+            background: indianred;
+            border-radius: 8px;
+        }
+        .h-txt{
+            
+            max-width: 650px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+
+        }
+        
+        .h-txt h1{
+            font-size: 3em;
+        }
+        .h-txt span{
+            letter-spacing: 5px;
+            font-size: 2em;
+        }
+        .h-txt a{
+            text-decoration: none;
+            color:black;
+            padding: 10px 20px;
+            font-size: 20px;
+            background:indianred;
+            border-radius: 8px;
+
+        } 
+        .h-txt a:hover{
+          background :transparent;
+            border:1px solid indianred
+        }
+        #form {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100px;
+            right: 10px;
+            padding: 2%;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.491), rgba(255, 255, 255, 0.368));
+            filter: blur(0.2px);
+            border-radius: 10px;
+            visibility: hidden;
+        }
+        label {
+            font-size: large;
+            font-weight: bold;
+            color: white;
+        }
+        input {
+            border-radius: 10px;
+            height: 20px;
+        }
+        button {
+            font-size: 20px;
+            padding: 3%;
+            border: none;
+            background-color: rgb(4, 5, 5);
+            color: white;
+            border-radius: 10px;
+            margin-left: 30%;
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                Travel-X
+
+            </div>
+            <div
+            class="menu"> 
+            <a href="#">Home</a>
+            <a href="#">Hill Station</a>
+            <a href="#">Our Sites</a>
+            <a href="#" title="Ph.No- +91 9170XXXXXX&#013;Email: Tavel_X9612@gmail.com">Contact</a>
+        </div>
+        <div class="register">
+            <a href="#" id="register-link">Register</a>
+        </div>
+    </nav>
+        <section class="h-txt">
+            <span>Enjoy</span>
+            <h1>International Travel Agency</h1>
+
+            <br>
+            <a href="#">Book Your Trip</a>
+        </section>
+    </header>
+    <div id="form">
+        <form id="register-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required><br><br>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            
+            <button type="button" onclick="register()" id="Submit">Submit</button>
+        </form>
+    </div>
+        <p id="message"></p>
+
+    <script>
+        document.getElementById('register-link').addEventListener('click', ()=>{
+            document.getElementById('form').style.visibility = 'visible'
+        })
+        document.getElementById('Submit').addEventListener('click', ()=>{
+            alert('Welcom User!')
+            document.getElementById('form').style.visibility = 'hidden'
+        })
+        function register() {
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            document.getElementById('message').innerText = 
+                `Registration successful for ${username} with email ${email}`;
+            
+        }
+    </script>
+    
+</body>
+
+</html>
